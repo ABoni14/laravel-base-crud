@@ -2,11 +2,11 @@
 
 @section("content")
   <div class="container">
-    <h2>{{$comic->title}}</h2>
-    <p>{{$comic->description}}</p>
-    <h4>{{ $comic->price }}</h4>
-    <h4>{{ $comic->series }}</h4>
-    <h4>{{ $comic->sale_date }}</h4>
-    <h4>{{ $comic->type }}</h4>
+    <h2><strong>Titolo:</strong> {{$comic->title}}</h2>
+    <p><strong>Descrizione:</strong> {{$comic->description}}</p>
+    <h4><strong>Prezzo:</strong> {{ $comic->price }} €</h4>
+    <h4><strong>Serie:</strong> {{ $comic->series }}</h4>
+    <h4><strong>Data uscita:</strong> {{ $comic->sale_date }}</h4>
+    <h4><strong>Tipologia:</strong>{{ $comic->type }}</h4>
   </div>
 @endsection
