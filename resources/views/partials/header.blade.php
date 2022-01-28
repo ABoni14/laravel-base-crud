@@ -1,10 +1,13 @@
 <header class="container py-5">
   <ul class="nav nav-pills">
      <li class="nav-item">
-       <a class="nav-link {{ (Route::currentRouteName() === 'home') ? 'active' : '' }}" href="">Home</a>
+       <a class="nav-link {{ (Route::currentRouteName() === 'home') ? 'active' : '' }}" href="{{route("home")}}">Home</a>
      </li>
      <li class="nav-item">
-       <a class="nav-link {{ (Route::currentRouteName() === 'travels') ? 'active' : '' }}" href="{{route("comics.index")}}">Comics</a>
+       <a class="nav-link {{ (Route::currentRouteName() === 'comics') ? 'active' : '' }}" href="{{route("comics.index")}}">Comics</a>
      </li>
+     <li class="nav-item">
+      <a class="nav-link {{ (Route::currentRouteName() === 'comics-create') ? 'active' : '' }}" href="{{route("comics.create")}}">Comics create</a>
+    </li>
   </ul>
 </header>

@@ -13,6 +13,9 @@
           <th scope="col">Serie</th>
           <th scope="col">Data uscita</th>
           <th scope="col">Tipologia</th>
+          <th scope="col">Mostra</th>
+          <th scope="col">Modifica</th>
+          <th scope="col">Elimina</th>
         </tr>
       </thead>
       <tbody>
@@ -26,6 +29,12 @@
               <td>{{ $comic->sale_date }}</td>
               <td>{{ $comic->type }}</td>
               <td><a href="{{route("comics.show", $comic)}}" class="btn btn-primary">SHOW</a></td>
+              <td><a href="{{route("comics.edit", $comic)}}" class="btn btn-warning">EDIT</a></td>
+              <td> <form action="{{ route('comics.destroy', $comic) }}" method="POST">
+                @csrf
+                @method('DELETE')
+
+                <button type="submit" class="btn btn-danger">DELETE</button></td>
           </tr>
           @empty
               <h3>Nessun risultato trovato</h3>
