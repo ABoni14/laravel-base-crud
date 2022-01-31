@@ -4,6 +4,11 @@
   <div class="container">
     <h2>Comics</h2>
 
+    @if (session('deleted'))
+        <div class="alert alert-danger" role="alert">
+            {{ session('deleted') }}
+        </div>
+    @endif
     <table class="table">
       <thead>
         <tr>
