@@ -7,7 +7,7 @@
     <h4><strong>Prezzo:</strong> {{ $comic->price }} €</h4>
     <h4><strong>Serie:</strong> {{ $comic->series }}</h4>
     <h4><strong>Data uscita:</strong> {{ $comic->sale_date }}</h4>
-    <h4><strong>Tipologia:</strong>{{ $comic->type }}</h4>
+    <h4><strong>Tipologia:</strong> {{ $comic->type }}</h4>
     <img src="{{ $comic->thumb}}" alt="{{ $comic->title}}" class="h-100">
   </div>
 @endsection
