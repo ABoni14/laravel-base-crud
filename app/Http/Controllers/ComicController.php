@@ -37,6 +37,8 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate($this->validData(), $this->validErrors());
+
         $data = $request->all();
         $new_comic = new Comic();
         $new_comic->slug = Str::slug($data["title"], "-");
@@ -84,6 +86,8 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+        $request->validate($this->validData(), $this->validErrors());
+        
         $data = $request->all();
         $data['slug'] = $this->createSlug($data['title']);
         $comic->update($data);
@@ -100,5 +104,36 @@ class ComicController extends Controller
     {
         $comic->delete();
         return redirect()->route('comics.index')->with("deleted", "Il fumetto $comic->title è stato eliminato.");
+    }
+
+    public function validData(){
+        return [
+            "title" => "required|max:50",
+            "description" => "required|max:50|min:2",
+            "thumb" => "required",
+            "price" => "required|numeric|max:100",
+            "series" => "required|max:50",
+            "sale_date" => "required",
+            "type" => "required|max:50"
+        ];
+    }
+
+    public function validErrors(){
+        return [
+            "title.required" => "Il titolo è un campo obbligatorio",
+            "title.max" => "Il numero massimo di caratteri è di :max",
+            "description.required" => "La descrizione è un campo obbligatorio",
+            "description.max" => "Il numero massimo di caratteri è di :max",
+            "description.min" => "Il numero massimo di caratteri è di :min",
+            "thumb.required" => "L'immagine è un campo obbligatorio",
+            "price.required" => "Il prezzo è un campo obbligatorio",
+            "price.numeric" => "Il prezzo è un campo numerico",
+            "price.max" => "Il costo massimo inseribile è di :max €",
+            "series.required" => "La serie è un campo obbligatorio",
+            "series.max" => "Il numero massimo di caratteri è di :max",
+            "sale_date.required" => "L'anno di pubblicazione è un campo obbligatorio",
+            "type.required" => "Il tipo è un campo obbligatorio",
+            "type.max" => "Il numero massimo di caratteri è di :max"
+        ];
     }
 }

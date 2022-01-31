@@ -4,10 +4,10 @@
        <a class="nav-link {{ (Route::currentRouteName() === 'home') ? 'active' : '' }}" href="{{route("home")}}">Home</a>
      </li>
      <li class="nav-item">
-       <a class="nav-link {{ (Route::currentRouteName() === 'comics') ? 'active' : '' }}" href="{{route("comics.index")}}">Comics</a>
+       <a class="nav-link {{ (Route::currentRouteName() === 'comics.index') ? 'active' : '' }}" href="{{route("comics.index")}}">Comics</a>
      </li>
      <li class="nav-item">
-      <a class="nav-link {{ (Route::currentRouteName() === 'comics-create') ? 'active' : '' }}" href="{{route("comics.create")}}">Comics create</a>
+      <a class="nav-link {{ (Route::currentRouteName() === 'comics.create') ? 'active' : '' }}" href="{{route("comics.create")}}">Comics create</a>
     </li>
   </ul>
 </header>
